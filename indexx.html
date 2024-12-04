@@ -4,9 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Podcast Action Items</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="text"], button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Podcast Action Items</h1>
-    <p>Coming soon: Generate action items from podcasts!</p>
+    <h1>Podcast Action Items</h1>
+    <p>Enter the link to a YouTube podcast, and we'll generate actionable insights for you.</p>
+    <form id="youtubeForm">
+        <input type="text" id="youtubeLink" placeholder="Enter YouTube Podcast Link" required>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="resultMessage"></p>
+    <script>
+        document.getElementById('youtubeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const youtubeLink = document.getElementById('youtubeLink').value;
+            document.getElementById('resultMessage').textContent = `You entered: ${youtubeLink}`;
+        });
+    </script>
 </body>
 </html>
